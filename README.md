@@ -1,11 +1,11 @@
 <div align="center">
-  Cn Lang Quiz
-  <p>Simple program to quiz chinese vocab</p>
+  Lang Quiz
+  <p>Simple program to quiz on languages</p>
 </div>
 
 <p align="center">
-  <a href="https://github.com/TODO/TODO/actions/workflows/rust.yml?query=branch%3Amain">
-    <img src="https://github.com/TODO/TODO/workflows/Rust/badge.svg"
+  <a href="https://github.com/deltachives/2025-004-langquiz-rs/actions/workflows/rust.yml?query=branch%3Amain">
+    <img src="https://github.com/deltachives/2025-004-langquiz-rs/workflows/Rust/badge.svg"
          alt="Rust">
   </a>&nbsp;
   <a href="https://opensource.org/licenses/MIT">
@@ -29,13 +29,57 @@
 
 # Purpose
 
-Test Pinyin, chinese, english translation vocab
+Simple program to quiz vocab and sentences in various languages.
+
+Quiz convert mode requires a csv where the program displays a value from a column, and requires a value from another column to be filled.
+
+# Example Usage
+
+```sh
+cat <(cat << 'EOF'
+pinyin,pinyin_pitch,hanzi,english
+ni,ni3,你,you
+hao,hao3,好,good
+ni'hao,ni3hao3,你好,hello
+shuo,shuo1,说,speak
+EOF
+) > words_cn.csv
+```
+
+Now you can quiz your memory on any representation. For example, hanzi to pinyin_pitch:
+
+```sh
+cargo run quiz_convert words_cn.csv "hanzi" "pinyin_pitch"
+```
+
+```
+Enter the corresponding pinyin_pitch for 你 or type [q]uit:
+ni3
+That is correct!
+Enter the corresponding pinyin_pitch for 说 or type [q]uit:
+shuo1
+That is correct!
+Enter the corresponding pinyin_pitch for 说 or type [q]uit:
+shuo1
+That is correct!
+Enter the corresponding pinyin_pitch for 你好 or type [q]uit:
+ni'hao
+retry? ([y]es/[n]o)
+y
+Enter the corresponding pinyin_pitch for 你好 or type [q]uit:
+ni3hao3
+That is correct!
+Enter the corresponding pinyin_pitch for 你 or type [q]uit:
+```
+
+You can convert between any columns of your choice.
+
 
 # Contributing
 
 All contributions are welcome!
 
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/TODO/TODO/issues/new).
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/deltachives/2025-004-langquiz-rs/issues/new).
 
 To contribute changes, please follow the instructions in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
