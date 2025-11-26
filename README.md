@@ -69,7 +69,6 @@ y
 Enter the corresponding pinyin_pitch for 你好 or type [q]uit:
 ni3hao3
 That is correct!
-Enter the corresponding pinyin_pitch for 你 or type [q]uit:
 ```
 
 You can convert between any columns of your choice.
